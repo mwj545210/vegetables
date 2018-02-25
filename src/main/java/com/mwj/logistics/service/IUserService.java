@@ -1,6 +1,6 @@
-package com.mwj.demo_hibernate_springmvc.service;
+package com.mwj.logistics.service;
 
-import com.mwj.demo_hibernate_springmvc.entry.User;
+import com.mwj.logistics.entry.User;
 
 import java.util.List;
 

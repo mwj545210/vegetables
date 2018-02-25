@@ -1,8 +1,8 @@
-package com.mwj.demo_hibernate_springmvc.service.imp;
+package com.mwj.logistics.service.imp;
 
-import com.mwj.demo_hibernate_springmvc.dao.UserDao;
-import com.mwj.demo_hibernate_springmvc.entry.User;
-import com.mwj.demo_hibernate_springmvc.service.IUserService;
+import com.mwj.logistics.dao.UserDao;
+import com.mwj.logistics.entry.User;
+import com.mwj.logistics.service.IUserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

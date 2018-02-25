@@ -1,6 +1,6 @@
-package com.mwj.demo_hibernate_springmvc.dao;
+package com.mwj.logistics.dao;
 
-import com.mwj.demo_hibernate_springmvc.entry.User;
+import com.mwj.logistics.entry.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

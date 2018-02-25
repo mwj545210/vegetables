@@ -1,7 +1,7 @@
-package com.mwj.demo_hibernate_springmvc.controller;
+package com.mwj.logistics.controller;
 
-import com.mwj.demo_hibernate_springmvc.entry.User;
-import com.mwj.demo_hibernate_springmvc.service.IUserService;
+import com.mwj.logistics.entry.User;
+import com.mwj.logistics.service.IUserService;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;

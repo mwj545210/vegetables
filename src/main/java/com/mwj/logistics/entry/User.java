@@ -1,4 +1,4 @@
-package com.mwj.demo_hibernate_springmvc.entry;
+package com.mwj.logistics.entry;
 
 import javax.persistence.*;
 
