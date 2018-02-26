@@ -35,4 +35,9 @@ dependencies {
     compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.39'
     //springData
     compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '1.10.3.RELEASE'
+
+    compile 'javax.servlet:jstl:1.2'
+
+    compile 'commons-collections:commons-collections:3.2'
+    compile 'org.apache.commons:commons-lang3:3.4'
 }
