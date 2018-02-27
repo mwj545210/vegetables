@@ -40,4 +40,7 @@ dependencies {
 
     compile 'commons-collections:commons-collections:3.2'
     compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.7.3'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.7.3'
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-hibernate5:2.7.3'
 }
