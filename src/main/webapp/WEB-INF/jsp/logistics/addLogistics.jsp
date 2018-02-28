@@ -6,9 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <title>后台管理</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
-    <script type="text/javascript" src="assets/js/modernizr.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css"/>
+    <script type="text/javascript" src="../assets/js/modernizr.min.js"></script>
 </head>
 <body>
 <div class="topbar-wrap white">
@@ -23,20 +23,10 @@
         <div class="sidebar-content">
             <ul class="sidebar-list">
                 <li>
-                    <a href="#"><i class="icon-font">&#xe003;</i>常用操作</a>
                     <ul class="sub-menu">
-                        <li><a href="administer-分类管理（标签）.html"><i class="icon-font">&#xe008;</i>分类管理</a></li>
-                        <li><a href="addLogistics.jsp"><i class="icon-font">&#xe005;</i>公告发布</a></li>
-                        <li><a href="administer-订单查询.html"><i class="icon-font">&#xe006;</i>订单查询</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="icon-font">&#xe018;</i>系统管理</a>
-                    <ul class="sub-menu">
-                        <li><a href="system.html"><i class="icon-font">&#xe017;</i>系统设置</a></li>
-                        <li><a href="system.html"><i class="icon-font">&#xe037;</i>清理缓存</a></li>
-                        <li><a href="system.html"><i class="icon-font">&#xe046;</i>数据备份</a></li>
-                        <li><a href="system.html"><i class="icon-font">&#xe045;</i>数据还原</a></li>
+                        <li><a href="/logistics/listLogistics.do"><i class="icon-font"></i>物流信息列表</a></li>
+                        <li><a href="addLogistics.jsp"><i class="icon-font"></i>公告发布</a></li>
+                        <li><a href="administer-订单查询.html"><i class="icon-font"></i>订单查询</a></li>
                     </ul>
                 </li>
             </ul>
@@ -50,51 +40,34 @@
         </div>
         <div class="result-wrap">
             <div class="result-content">
-                <form action="/jscss/admin/design/add" method="post" id="myform" name="myform" enctype="multipart/form-data">
+                <form:form action="/logistics/saveLogistics.do" method="post" commandName="logistic">
                     <table class="insert-tab" width="100%">
-                        <tbody><tr>
-                            <th width="120"><i class="require-red">*</i>分类：</th>
+                        <tbody>
+                        <tr>
+                            <th>物流名称：</th>
+                            <td><input name="logisticName"/></td>
+                        </tr>
+                        <tr>
+                            <th>物流编码：</th>
+                            <td><input name="logisticCode"/></td>
+                        </tr>
+                        <tr>
+                            <th>物流公司：</th>
+                            <td><input name="logisticCompany"/></td>
+                        </tr>
+                        <tr>
+                            <th>物流内容：</th>
+                            <td><input name="logisticContent"/></td>
+                        </tr>
+                        <tr>
+                            <th></th>
                             <td>
-                                <select name="colId" id="catid" class="required">
-                                    <option value="18">请选择</option>
-                                    <option value="19">运动健身</option>
-                                     <option value="20">旅游</option>
-                                    <option value="21">文学艺术</option>
-                                    <option value="22">演讲</option>
-                                    <option value="23">经济</option>
-                                    <option value="24">电影</option>
-                                    <option value="25">科技</option>
-                                    <option value="26">美食</option>
-                                </select>
+                                <input class="btn btn-primary btn6 mr10" value="添加" type="submit">
+                                <input class="btn btn6" onclick="history.go(-1)" value="返回" type="button">
                             </td>
                         </tr>
-                            <tr>
-                                <th><i class="require-red">*</i>标题：</th>
-                                <td>
-                                    <input class="common-text required" id="title" name="title" size="50" value="" type="text">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th><i class="require-red">*</i>图片：</th>
-                                <td><input name="smallimg" id="" type="file"><!--<input type="submit" onclick="submitForm('/jscss/admin/design/upload')" value="上传图片"/>--></td>
-                            </tr>
-                            <tr>
-                                <th><i class="require-red">*</i>视频：</th>
-                                <td><input name="vedio" id="" type="file"><!--<input type="submit" onclick="submitForm('/jscss/admin/design/upload')" value="上传视频"/>--></td>
-                            </tr>
-                            <tr>
-                                <th>课程介绍：</th>
-                                <td><textarea name="content" class="common-textarea" id="content" cols="30" style="width: 98%;" rows="10"></textarea></td>
-                            </tr>
-                            <tr>
-                                <th></th>
-                                <td>
-                                    <input class="btn btn-primary btn6 mr10" value="发布" type="submit">
-                                    <input class="btn btn6" onclick="history.go(-1)" value="返回" type="button">
-                                </td>
-                            </tr>
                         </tbody></table>
-                </form>
+                </form:form>
             </div>
         </div>
 

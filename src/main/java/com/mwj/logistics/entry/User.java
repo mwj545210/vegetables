@@ -14,7 +14,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "USER_ID",unique = true, nullable = false, insertable = true, updatable = true)
-    private String userId;
+    private int userId;
 
     @Column(name = "USER_NAME",unique = false, nullable = false, insertable = true, updatable = true)
     private String userName;
@@ -22,11 +22,11 @@ public class User {
     @Column(name = "USER_PASSWORD",unique = false, nullable = false, insertable = true, updatable = true)
     private String password;
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
