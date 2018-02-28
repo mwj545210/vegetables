@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping(value = "/")
@@ -24,11 +25,14 @@ public class LoginController {
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseResult login(@ModelAttribute User user) {
+    public ResponseResult login(@ModelAttribute User user, HttpSession session) {
         ResponseResult responseResult = new ResponseResult();
         responseResult.setResult(Result.SUCCESS);
-        if (!userService.login(user.getUserName(),user.getPassword())){
+        User loginUser = userService.login(user.getUserName(), user.getPassword());
+        if (loginUser == null){
             responseResult.setResult(Result.FAILURE);
+        }else {
+            session.setAttribute("authority",loginUser.isAuthority());
         }
         return responseResult;
     }

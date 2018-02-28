@@ -22,6 +22,9 @@ public class User {
     @Column(name = "USER_PASSWORD",unique = false, nullable = false, insertable = true, updatable = true)
     private String password;
 
+    @Column(name = "AUTHORITY",unique = false, nullable = false, insertable = true, updatable = true)
+    private boolean authority;
+
     public int getUserId() {
         return userId;
     }
@@ -44,6 +47,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(boolean authority) {
+        this.authority = authority;
     }
 }
 

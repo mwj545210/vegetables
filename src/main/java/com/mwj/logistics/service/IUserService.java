@@ -14,5 +14,5 @@ public interface IUserService {
 
     Page<User> pageUser(Pagination<User> pagination);
 
-    boolean login(String userName, String password);
+    User login(String userName, String password);
 }

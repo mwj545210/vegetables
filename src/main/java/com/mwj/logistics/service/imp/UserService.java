@@ -35,8 +35,8 @@ public class UserService implements IUserService{
     }
 
     @Override
-    public boolean login(String userName, String password) {
+    public User login(String userName, String password) {
         User user = userDao.findByUserNameAndPassword(userName, password);
-        return user != null;
+        return user;
     }
 }

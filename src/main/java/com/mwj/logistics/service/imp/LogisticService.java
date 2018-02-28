@@ -6,6 +6,7 @@ import com.mwj.logistics.service.ILogisticService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by MWJ on 2017/12/25.
@@ -20,5 +21,20 @@ public class LogisticService implements ILogisticService{
     @Override
     public Logistic addLogistics(Logistic logistic) {
         return logisticDao.save(logistic);
+    }
+
+    @Override
+    public List<Logistic> findAllLogistics() {
+        return logisticDao.findAll();
+    }
+
+    @Override
+    public void delLogisticsByIds(List<Logistic> logistics) {
+        logisticDao.delete(logistics);
+    }
+
+    @Override
+    public Logistic findLogisticById(int id) {
+        return logisticDao.findOne(id);
     }
 }

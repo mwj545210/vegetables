@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>新增物流</title>
+    <title>编辑物流</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="../assets/css/main.css"/>
     <script type="text/javascript" src="../assets/js/modernizr.min.js"></script>
@@ -34,33 +34,34 @@
     <div class="main-wrap">
 
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font">新增物流</i></div>
+            <div class="crumb-list"><i class="icon-font">保存物流</i></div>
         </div>
         <div class="result-wrap">
             <div class="result-content">
                 <form:form action="/logistics/saveLogistics.do" method="post" commandName="logistic">
                     <table class="insert-tab" width="100%">
+                        <input type="hidden" name="logisticId" value="${logistic.logisticId}"/>
                         <tbody>
                         <tr>
                             <th>物流名称：</th>
-                            <td><input name="logisticName"/></td>
+                            <td><input name="logisticName" value="${logistic.logisticName}"/></td>
                         </tr>
                         <tr>
                             <th>物流编码：</th>
-                            <td><input name="logisticCode"/></td>
+                            <td><input name="logisticCode" value="${logistic.logisticCode}"/></td>
                         </tr>
                         <tr>
                             <th>物流公司：</th>
-                            <td><input name="logisticCompany"/></td>
+                            <td><input name="logisticCompany" value="${logistic.logisticCompany}"/></td>
                         </tr>
                         <tr>
                             <th>物流内容：</th>
-                            <td><input name="logisticContent"/></td>
+                            <td><input name="logisticContent" value="${logistic.logisticContent}"/></td>
                         </tr>
                         <tr>
                             <th></th>
                             <td>
-                                <input class="btn btn-primary btn6 mr10" value="添加" type="submit">
+                                <input class="btn btn-primary btn6 mr10" value="保存" type="submit">
                                 <input class="btn btn6" onclick="history.go(-1)" value="返回" type="button">
                             </td>
                         </tr>

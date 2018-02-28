@@ -28,6 +28,12 @@ public class Logistic {
     @Column(name = "LOGISTIC_CONTENT", unique = false, nullable = false, insertable = true, updatable = true)
     private String logisticContent;
 
+    public Logistic(int logisticId) {
+        this.logisticId = logisticId;
+    }
+    public Logistic() {
+    }
+
     public int getLogisticId() {
         return logisticId;
     }

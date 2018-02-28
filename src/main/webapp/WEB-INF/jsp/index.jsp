@@ -18,7 +18,7 @@
                 data: $('#login').serialize(),
                 success: function (data) {
                     if (data.result =='SUCCESS'){
-                        window.location.href="/logistics/addLogistics.do";
+                        window.location.href="/logistics/listLogistics.do";
                     }else {
                         alert("账号或者密码错误！");
                     }
