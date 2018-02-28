@@ -16,4 +16,6 @@ public interface ILogisticService {
     void delLogisticsByIds(List<Logistic> logistics);
 
     Logistic findLogisticById(int id);
+
+    List<Logistic> findAllByCode(String code);
 }

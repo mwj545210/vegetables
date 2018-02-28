@@ -43,6 +43,15 @@ public class LogisticsController {
         return "/logistics/editLogistics";
     }
 
+    @RequestMapping(value = "queryLogistics",method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseResult queryLogistics(@RequestParam("code") String code){
+        List<Logistic> allByCode = logisticService.findAllByCode(code);
+        ResponseResult responseResult = new ResponseResult();
+        responseResult.setData(allByCode);
+        return responseResult;
+    }
+
     @RequestMapping(value = "listLogistics",method = RequestMethod.GET)
     public String viewLogistics(ModelMap modelMap){
         List<Logistic> logistics = logisticService.findAllLogistics();

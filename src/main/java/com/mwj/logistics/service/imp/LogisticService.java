@@ -37,4 +37,9 @@ public class LogisticService implements ILogisticService{
     public Logistic findLogisticById(int id) {
         return logisticDao.findOne(id);
     }
+
+    @Override
+    public List<Logistic> findAllByCode(String code) {
+        return logisticDao.findByLogisticCodeContaining(code);
+    }
 }

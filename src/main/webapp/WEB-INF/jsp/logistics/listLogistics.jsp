@@ -51,6 +51,31 @@
                 window.location.href="/logistics/editLogistics.do?id=" + id;
             }
         }
+
+        function query() {
+            var code = document.getElementById("code").value;
+            if(code!="") {
+                $.ajax({
+                    type: "get",
+                    url: '/logistics/queryLogistics.do?code=' + code,
+                    dataType: 'json',
+                    success: function (data) {
+                        $("#table tr:first").siblings('tr').remove();
+                        var item;
+                        if (data.data != null){
+                            $.each(data.data, function (i, result) {
+                                item = "<tr><td class='tc'><input name='checkbox' type='checkbox' value='" + result['logisticId'] + "'></td><td>" +
+                                    result['logisticId'] + "</td><td>" + result['logisticName'] + "</td><td>" + result['logisticCode'] +
+                                    "</td><td>" + result['logisticCompany'] + "</td><td>" + result['logisticContent'] + "</td></tr>";
+                                $('#table').append(item);
+                            });
+                        }
+                    }
+                });
+            }else {
+                window.location.reload();
+            }
+        }
     </script>
 </head>
 <body>
@@ -84,15 +109,13 @@
         </div>
         <div class="search-wrap">
             <div class="search-content">
-                <form action="#" method="post">
                     <table class="search-tab">
                         <tr>
-                            <th width="70">关键字:</th>
-                            <td><input class="common-text" placeholder="关键字" name="keywords" value="" id="" type="text"></td>
-                            <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
+                            <th width="70">物流编码:</th>
+                            <td><input class="common-text" placeholder="关键字" name="keywords" id="code" type="text"></td>
+                            <td><button class="btn btn-primary btn2" name="sub" onclick="query()">查询</button></td>
                         </tr>
                     </table>
-                </form>
             </div>
         </div>
         <div class="result-wrap">
@@ -107,7 +130,7 @@
                     </c:if>
                 </div>
                 <div class="result-content">
-                    <table class="result-tab" width="100%">
+                    <table class="result-tab" width="100%" id="table">
                         <tr>
                             <th class="tc" width="5%"></th>
                             <th>物流ID</th>
