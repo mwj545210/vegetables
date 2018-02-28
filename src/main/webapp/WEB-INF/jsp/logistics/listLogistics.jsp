@@ -160,55 +160,7 @@
             </div>
         </div>
     </div>
-    <!-- Row ends -->
 
-    <!-- Row starts -->
-    <%--<div class="row gutter">--%>
-        <%--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">--%>
-            <%--<div class="panel panel-light no-margin">--%>
-                <%--<div class="panel-heading">--%>
-                    <%--<h4 class="pull-left">列表</h4>--%>
-                    <%--<div class="custom-btn-group pull-right">--%>
-                        <%--<a class="btn btn-success btn-rounded" href="addSystemUser.do"><i class="fa fa-plus-circle"></i><span>&nbsp;&nbsp;新&nbsp;建&nbsp; </span></a>--%>
-                        <%--<button type="button" class="btn btn-primary btn-rounded" onclick="editItem();"><i class="fa fa-edit"></i>&nbsp;&nbsp;编&nbsp;辑&nbsp;</button>--%>
-                        <%--<button type="button" class="btn btn-danger btn-rounded" onclick="removeItem();"><i class="fa fa-minus-circle"></i>&nbsp;&nbsp;删&nbsp;除&nbsp;--%>
-                        <%--</button>--%>
-                        <%--<button type="button" class="btn btn-info btn-rounded" onclick="viewItem();"><i class="fa fa-minus-circle"></i>&nbsp;&nbsp;详&nbsp;情&nbsp;--%>
-                        <%--</button>--%>
-                        <%--<button type="button" class="btn btn-warning btn-rounded" onclick="changeItem();"><i class="fa fa-ban"></i>&nbsp;更&nbsp;改&nbsp;状&nbsp;态--%>
-                        <%--</button>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-                <%--<div class="panel-body panel-no-padding">--%>
-                    <%--<kendo:grid name="grid" pageable="true" sortable="true" selectable="true" height="550" resizable="true" style="border-width:0px;">--%>
-                        <%--<kendo:grid-pageable refresh="true" pageSizes="true" buttonCount="5" pageSize="15"/>--%>
-                        <%--<kendo:grid-columns>--%>
-                            <%--<kendo:grid-column title="物流信息" field="userName" width="80"/>--%>
-                            <%--<kendo:grid-column title="邮箱" field="email" width="80"/>--%>
-                            <%--<kendo:grid-column title="手机号码" field="mobile" width="80"/>--%>
-                            <%--<kendo:grid-column title="是否启用" field="enabled" width="80" template="#= enabled ? '是' : '否'#"/>--%>
-                            <%--<kendo:grid-column title="创建时间" field="createTime" width="80"/>--%>
-                            <%--<kendo:grid-column title="备注" field="remark" width="80"/>--%>
-                        <%--</kendo:grid-columns>--%>
-                        <%--<kendo:dataSource serverPaging="true" serverFiltering="true" serverSorting="true">--%>
-                            <%--<kendo:dataSource-schema data="content" total="totalElements"></kendo:dataSource-schema>--%>
-                            <%--<kendo:dataSource-transport>--%>
-                                <%--<kendo:dataSource-transport-read url="pageUser.do" type="POST" contentType="application/json"/>--%>
-                                <%--<kendo:dataSource-transport-parameterMap>--%>
-                                    <%--<script>--%>
-                                        <%--function parameterMap(options, type) {--%>
-                                            <%--return JSON.stringify(options);--%>
-                                        <%--}--%>
-                                    <%--</script>--%>
-                                <%--</kendo:dataSource-transport-parameterMap>--%>
-                            <%--</kendo:dataSource-transport>--%>
-                        <%--</kendo:dataSource>--%>
-                    <%--</kendo:grid>--%>
-                <%--</div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</div>--%>
-    <!-- Row ends -->
 </div>
 <!-- Main container ends -->
 </body>

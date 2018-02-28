@@ -11,6 +11,6 @@ public class LogisticsController {
 
     @RequestMapping(value = "listLogistics",method = RequestMethod.GET)
     public String listLogistics(){
-        return "/logistics/listLogistics";
+        return "/logistics/addLogistics";
     }
 }
