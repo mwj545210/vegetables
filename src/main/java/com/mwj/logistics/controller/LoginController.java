@@ -36,4 +36,11 @@ public class LoginController {
         }
         return responseResult;
     }
+
+    @RequestMapping(value = "travelLogin",method = RequestMethod.GET)
+    @ResponseBody
+    public String travelLogin(HttpSession session){
+        session.setAttribute("authority",false);
+        return "SUCCESS";
+    }
 }

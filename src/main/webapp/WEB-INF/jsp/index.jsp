@@ -28,6 +28,15 @@
                 }
             });
         }
+        
+        function travelLogin() {
+            $.ajax({
+                type: "GET",
+                dataType:"JSON",
+                url: "travelLogin.do"
+            });
+            window.location.href="/logistics/listLogistics.do";
+        }
     </script>
 </head>
 <body>
@@ -49,7 +58,7 @@
                     <%--</label>--%>
                 </div>
                 <button onclick="login()" type="button" class="btn btn-primary">登录</button>
-                <a href="reg.html" class="btn btn-default">注册</a>
+                <a onclick="travelLogin()" class="btn btn-default">游客登录</a>
             </form:form>
             <iframe style="display: none;" name="submitFrame" src="about:blank"></iframe>
         </div>
