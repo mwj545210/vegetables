@@ -1,7 +1,7 @@
-package com.mwj.logistics.controller;
+package com.mwj.vegetable.controller;
 
-import com.mwj.logistics.entry.User;
-import com.mwj.logistics.service.IUserService;
+import com.mwj.vegetable.entry.User;
+import com.mwj.vegetable.service.IUserService;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

@@ -23,7 +23,7 @@
                 if(window.confirm("确定删除所选记录？")){
                     $.ajax( {
                         type : "get",
-                        url : '/logistics/delLogistics.do?ids=' + ids, //要自行删除的action
+                        url : '/vegetable/delLogistics.do?ids=' + ids, //要自行删除的action
                         dataType : 'json',
                         success : function(data) {
                             if (data.result == "SUCCESS"){
@@ -48,7 +48,7 @@
                 alert("最多选择一个物流进行编辑")
             }else {
                 var id = checkbox[0].value;
-                window.location.href="/logistics/editLogistics.do?id=" + id;
+                window.location.href="/vegetable/editLogistics.do?id=" + id;
             }
         }
 
@@ -57,7 +57,7 @@
             if(code!="") {
                 $.ajax({
                     type: "get",
-                    url: '/logistics/queryLogistics.do?code=' + code,
+                    url: '/vegetable/queryLogistics.do?code=' + code,
                     dataType: 'json',
                     success: function (data) {
                         $("#table tr:first").siblings('tr').remove();

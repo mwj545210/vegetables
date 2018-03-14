@@ -1,7 +1,7 @@
-package com.mwj.logistics.service;
+package com.mwj.vegetable.service;
 
 import com.mwj.core.paging.Pagination;
-import com.mwj.logistics.entry.User;
+import com.mwj.vegetable.entry.User;
 import org.springframework.data.domain.Page;
 
 import java.util.List;

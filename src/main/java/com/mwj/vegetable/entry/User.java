@@ -1,4 +1,4 @@
-package com.mwj.logistics.entry;
+package com.mwj.vegetable.entry;
 
 import javax.persistence.*;
 

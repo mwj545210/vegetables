@@ -1,18 +1,13 @@
-package com.mwj.logistics.service.imp;
+package com.mwj.vegetable.service.imp;
 
 import com.mwj.core.paging.Pagination;
-import com.mwj.logistics.dao.UserDao;
-import com.mwj.logistics.entry.User;
-import com.mwj.logistics.service.IUserService;
+import com.mwj.vegetable.dao.UserDao;
+import com.mwj.vegetable.entry.User;
+import com.mwj.vegetable.service.IUserService;
 import org.springframework.data.domain.Page;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 import java.util.List;
 
 /**

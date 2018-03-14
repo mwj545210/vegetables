@@ -1,10 +1,9 @@
-package com.mwj.logistics.controller;
+package com.mwj.vegetable.controller;
 
-import com.mwj.logistics.entry.User;
-import com.mwj.logistics.service.IUserService;
-import com.mwj.logistics.service.imp.UserService;
-import com.mwj.logistics.vo.ResponseResult;
-import com.mwj.logistics.vo.Result;
+import com.mwj.vegetable.entry.User;
+import com.mwj.vegetable.service.IUserService;
+import com.mwj.vegetable.vo.ResponseResult;
+import com.mwj.vegetable.vo.Result;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 

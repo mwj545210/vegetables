@@ -6,7 +6,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
     <!-- 配置自动扫描的包 -->
-    <context:component-scan base-package="com.mwj.logistics">
+    <context:component-scan base-package="com.mwj.vegetable">
         <context:exclude-filter type="annotation"
                                 expression="org.springframework.stereotype.Controller" />
         <context:exclude-filter type="annotation"
@@ -33,7 +33,7 @@
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"></bean>
         </property>
-        <property name="packagesToScan" value="com.mwj.logistics"></property>
+        <property name="packagesToScan" value="com.mwj.vegetable"></property>
         <property name="jpaProperties">
             <props>
                 <prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
@@ -61,7 +61,7 @@
     <tx:annotation-driven transaction-manager="transactionManager" />
 
     <!-- 配置SpringData部分 -->
-    <jpa:repositories base-package="com.mwj.logistics.dao" transaction-manager-ref="transactionManager"
+    <jpa:repositories base-package="com.mwj.vegetable.dao" transaction-manager-ref="transactionManager"
                       entity-manager-factory-ref="entityManagerFactory"
                       repository-impl-postfix="Impl"
     ></jpa:repositories>

@@ -1,4 +1,4 @@
-package com.mwj.logistics.vo;
+package com.mwj.vegetable.vo;
 
 public enum Result {
     SUCCESS,

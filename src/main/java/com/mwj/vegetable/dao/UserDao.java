@@ -1,6 +1,6 @@
-package com.mwj.logistics.dao;
+package com.mwj.vegetable.dao;
 
-import com.mwj.logistics.entry.User;
+import com.mwj.vegetable.entry.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

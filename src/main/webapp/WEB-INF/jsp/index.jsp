@@ -18,7 +18,7 @@
                 data: $('#login').serialize(),
                 success: function (data) {
                     if (data.result =='SUCCESS'){
-                        window.location.href="/logistics/listLogistics.do";
+                        window.location.href="/vegetable/listLogistics.do";
                     }else {
                         alert("账号或者密码错误！");
                     }
@@ -35,7 +35,7 @@
                 dataType:"JSON",
                 url: "travelLogin.do"
             });
-            window.location.href="/logistics/listLogistics.do";
+            window.location.href="/vegetable/listLogistics.do";
         }
     </script>
 </head>
