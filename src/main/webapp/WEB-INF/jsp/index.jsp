@@ -30,7 +30,7 @@
         }
         
         function register() {
-            window.location.href="register.do";
+            window.location.href="/register.do";
         }
     </script>
 </head>

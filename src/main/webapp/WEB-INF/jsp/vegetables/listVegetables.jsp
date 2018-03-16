@@ -48,7 +48,7 @@
                                 item = "<tr><td></td><td>" + result['vegetableName'] + "</td><td>" + result['vegetableCode'] +
                                     "</td><td>" + result['companyName'] + "</td><td>" + result['country'] + "</td><td>" + result['price'] +
                                     "</td><td>" +chooseType(result['dealType']) + "</td><a style='cursor: pointer;' onclick='del("+
-                                    result['price']+")'>删除</a>&nbsp;&nbsp;<a style='cursor: pointer;' onclick='edit("+result['price']+")'>编辑</a><td></tr>";
+                                    result['vegetableId']+")'>删除</a>&nbsp;&nbsp;<a style='cursor: pointer;' onclick='edit("+result['vegetableId']+")'>编辑</a><td></tr>";
                                 $('#table').append(item);
                             });
                         }

@@ -2,12 +2,10 @@ package com.mwj.vegetable.controller;
 
 import com.mwj.vegetable.entry.User;
 import com.mwj.vegetable.service.IUserService;
-import org.springframework.data.domain.Page;
+import com.mwj.vegetable.vo.ResponseResult;
+import com.mwj.vegetable.vo.Result;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -21,14 +19,17 @@ public class UserController {
     @Resource
     private IUserService userService;
 
-    @RequestMapping(value = "userLogin", method = RequestMethod.GET)
-    public String addUser(@ModelAttribute("user") User user, ModelMap modelMap) {
-        return "index";
-    }
-
-
-    @RequestMapping(value = "pageUser", method = RequestMethod.POST)
-    public Page<User> pageUser(@ModelAttribute("user") User user, ModelMap modelMap) {
-        return null;
+    @RequestMapping(value = "addUser", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseResult addUser(@ModelAttribute User user) {
+        ResponseResult responseResult = new ResponseResult();
+        responseResult.setResult(Result.SUCCESS);
+        try {
+            userService.addUser(user);
+        } catch (Exception e) {
+            responseResult.setResult(Result.FAILURE);
+            responseResult.setMessage(e.getMessage());
+        }
+        return responseResult;
     }
 }
