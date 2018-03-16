@@ -1,5 +1,7 @@
 package com.mwj.vegetable.entry;
 
+import com.mwj.vegetable.entry.meta.DealType;
+
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -32,7 +34,11 @@ public class Vegetable {
     private String price;
 
     @Column(name = "DEAL_TYPE", unique = false, nullable = false, insertable = true, updatable = true)
-    private String dealType;
+    @Enumerated(EnumType.ORDINAL)
+    private DealType dealType;
+
+    public Vegetable() {
+    }
 
     public int getVegetableId() {
         return vegetableId;
@@ -82,11 +88,11 @@ public class Vegetable {
         this.price = price;
     }
 
-    public String getDealType() {
+    public DealType getDealType() {
         return dealType;
     }
 
-    public void setDealType(String dealType) {
+    public void setDealType(DealType dealType) {
         this.dealType = dealType;
     }
 }

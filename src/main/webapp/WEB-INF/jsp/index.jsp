@@ -18,7 +18,7 @@
                 data: $('#login').serialize(),
                 success: function (data) {
                     if (data.result =='SUCCESS'){
-                        window.location.href="/vegetable/listLogistics.do";
+                        window.location.href="/vegetables/listVegetables.do";
                     }else {
                         alert("账号或者密码错误！");
                     }
@@ -29,13 +29,8 @@
             });
         }
         
-        function travelLogin() {
-            $.ajax({
-                type: "GET",
-                dataType:"JSON",
-                url: "travelLogin.do"
-            });
-            window.location.href="/vegetable/listLogistics.do";
+        function register() {
+            window.location.href="register.do";
         }
     </script>
 </head>
@@ -58,7 +53,7 @@
                     <%--</label>--%>
                 </div>
                 <button onclick="login()" type="button" class="btn btn-primary">登录</button>
-                <a onclick="travelLogin()" class="btn btn-default">游客登录</a>
+                <a onclick="register()" class="btn btn-default">注册</a>
             </form:form>
             <iframe style="display: none;" name="submitFrame" src="about:blank"></iframe>
         </div>

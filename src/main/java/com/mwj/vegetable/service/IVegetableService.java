@@ -13,7 +13,7 @@ public interface IVegetableService {
 
     List<Vegetable> findAllVegetables();
 
-    void delVegetablesByIds(List<Vegetable> vegetable);
+    void delVegetablesById(int vegetableId);
 
     Vegetable findVegetableById(int id);
 

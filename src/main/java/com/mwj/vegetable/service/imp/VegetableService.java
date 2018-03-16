@@ -29,8 +29,8 @@ public class VegetableService implements IVegetableService {
     }
 
     @Override
-    public void delVegetablesByIds(List<Vegetable> vegetable) {
-        vegetableDao.delete(vegetable);
+    public void delVegetablesById(int vegetableId) {
+        vegetableDao.delete(vegetableId);
     }
 
     @Override

@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>编辑物流</title>
+    <title>新增物流</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="../assets/css/main.css"/>
     <script type="text/javascript" src="../assets/js/modernizr.min.js"></script>
@@ -24,7 +24,7 @@
             <ul class="sidebar-list">
                 <li>
                     <ul class="sub-menu">
-                        <li><a href="/logistics/listLogistics.do"><i class="icon-font"></i>物流信息列表</a></li>
+                        <li><a href="/vegetables/listVegetables.do"><i class="icon-font"></i>货物信息列表</a></li>
                     </ul>
                 </li>
             </ul>
@@ -34,29 +34,38 @@
     <div class="main-wrap">
 
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font">保存物流</i></div>
+            <div class="crumb-list"><i class="icon-font">新增货物</i></div>
         </div>
         <div class="result-wrap">
             <div class="result-content">
-                <form:form action="/logistics/saveLogistics.do" method="post" commandName="logistic">
+                <form:form action="/vegetables/saveVegetables.do" method="post" commandName="vegetable">
                     <table class="insert-tab" width="100%">
-                        <input type="hidden" name="logisticId" value="${logistic.logisticId}"/>
                         <tbody>
                         <tr>
-                            <th>物流名称：</th>
-                            <td><input name="logisticName" value="${logistic.logisticName}"/></td>
+                            <th>蔬菜名称：</th>
+                            <td><input name="vegetableName" value="${vegetable.vegetableName}"/></td>
                         </tr>
                         <tr>
-                            <th>物流编码：</th>
-                            <td><input name="logisticCode" value="${logistic.logisticCode}"/></td>
+                            <th>蔬菜编码：</th>
+                            <td><input name="vegetableCode" value="${vegetable.vegetableCode}"/></td>
                         </tr>
                         <tr>
-                            <th>物流公司：</th>
-                            <td><input name="logisticCompany" value="${logistic.logisticCompany}"/></td>
+                            <th>公司名称：</th>
+                            <td><input name="companyName" value="${vegetable.companyName}"/></td>
                         </tr>
                         <tr>
-                            <th>物流内容：</th>
-                            <td><input name="logisticContent" value="${logistic.logisticContent}"/></td>
+                            <th>国家：</th>
+                            <td><input name="country" value="${vegetable.country}"/></td>
+                        </tr>
+                        <tr>
+                            <th>价格：</th>
+                            <td><input name="price" value="${vegetable.price}"/></td>
+                        </tr>
+                        <tr>
+                            <th>交易类型：</th>
+                            <td>
+                                <form:select path="dealType" items="${dealTypes}" itemLabel="name"/>
+                            </td>
                         </tr>
                         <tr>
                             <th></th>
@@ -65,7 +74,8 @@
                                 <input class="btn btn6" onclick="history.go(-1)" value="返回" type="button">
                             </td>
                         </tr>
-                        </tbody></table>
+                        </tbody>
+                    </table>
                 </form:form>
             </div>
         </div>
