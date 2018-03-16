@@ -17,5 +17,7 @@ public interface IVegetableService {
 
     Vegetable findVegetableById(int id);
 
+    List<Vegetable> findAllByQuery(Vegetable vegetable);
+
 //    List<Vegetable> findAllByCode(String code);
 }

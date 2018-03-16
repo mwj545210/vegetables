@@ -43,28 +43,34 @@
                         <tbody>
                         <tr>
                             <th>蔬菜名称：</th>
-                            <td><input name="vegetableName" value="${vegetable.vegetableName}"/></td>
+                            <td><input name="vegetableName" /></td>
                         </tr>
                         <tr>
                             <th>蔬菜编码：</th>
-                            <td><input name="vegetableCode" value="${vegetable.vegetableCode}"/></td>
+                            <td><input name="vegetableCode" /></td>
                         </tr>
                         <tr>
                             <th>公司名称：</th>
-                            <td><input name="companyName" value="${vegetable.companyName}"/></td>
+                            <td><input name="companyName"/></td>
                         </tr>
                         <tr>
                             <th>国家：</th>
-                            <td><input name="country" value="${vegetable.country}"/></td>
+                            <td><input name="country" /></td>
                         </tr>
                         <tr>
                             <th>价格：</th>
-                            <td><input name="price" value="${vegetable.price}"/></td>
+                            <td><input name="price"/></td>
                         </tr>
                         <tr>
                             <th>交易类型：</th>
                             <td>
-                                <form:select path="dealType" items="${dealTypes}" itemLabel="name"/>
+                                <label>
+                                    <select name="dealType">
+                                        <c:forEach items="${dealTypes}" var="type">
+                                            <option value="${type}">${type.name}</option>
+                                        </c:forEach>
+                                    </select>
+                                </label>
                             </td>
                         </tr>
                         <tr>

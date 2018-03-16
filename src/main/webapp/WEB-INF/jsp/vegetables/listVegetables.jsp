@@ -15,10 +15,10 @@
             if (window.confirm("确定删除所选记录？")) {
                 $.ajax({
                     type: "get",
-                    url: '/vegetables/delVegetables.do?ids=' + vegetableId, //要自行删除的action
+                    url: '/vegetables/delVegetables.do?vegetableId=' + vegetableId, //要自行删除的action
                     dataType: 'json',
                     success: function (data) {
-                        if (data.result == "SUCCESS") {
+                        if (data.result === "SUCCESS") {
                             alert("删除成功");
                             window.location.reload();
                         } else {
@@ -33,34 +33,35 @@
             window.location.href = "/vegetables/editVegetables.do?id=" + vegetableId;
         }
 
-        function query() {
-            var code = document.getElementById("code").value;
-            if (code != "") {
-                $.ajax({
-                    type: "get",
-                    url: '/vegetables/queryVegetables.do?code=' + code,
-                    dataType: 'json',
-                    success: function (data) {
-                        $("#table tr:first").siblings('tr').remove();
-                        var item;
-                        if (data.data != null) {
-                            $.each(data.data, function (i, result) {
-                                item = "<tr><td></td><td>" + result['vegetableName'] + "</td><td>" + result['vegetableCode'] +
-                                    "</td><td>" + result['companyName'] + "</td><td>" + result['country'] + "</td><td>" + result['price'] +
-                                    "</td><td>" +chooseType(result['dealType']) + "</td><a style='cursor: pointer;' onclick='del("+
-                                    result['vegetableId']+")'>删除</a>&nbsp;&nbsp;<a style='cursor: pointer;' onclick='edit("+result['vegetableId']+")'>编辑</a><td></tr>";
-                                $('#table').append(item);
-                            });
-                        }
+        function queryVe() {
+            var authority = '<%=session.getAttribute("authority")%>';
+            $.ajax({
+                type: "POST",
+                url: '/vegetables/queryVegetables.do',
+                dataType: 'json',
+                data: $('#query').serialize(),
+                success: function (data) {
+                    $("#table tr:first").siblings('tr').remove();
+                    var item;
+                    var itemlab = '';
+                    if (data.data !== null) {
+                        $.each(data.data, function (i, result) {
+                            if (authority === 'true') {
+                                itemlab = "<td><a style='cursor: pointer;' onclick='del(" +
+                                    result['vegetableId'] + ")'>删除</a>&nbsp;&nbsp;<a style='cursor: pointer;' onclick='edit(" + result['vegetableId'] + ")'>编辑</a></td>"
+                            }
+                            item = "<tr><td></td><td>" + result['vegetableName'] + "</td><td>" + result['vegetableCode'] +
+                                "</td><td>" + result['companyName'] + "</td><td>" + result['country'] + "</td><td>" + result['price'] +
+                                "</td><td>" + chooseType(result['dealType']) + "</td>" + itemlab + "</tr>";
+                            $('#table').append(item);
+                        });
                     }
-                });
-            } else {
-                window.location.reload();
-            }
+                }
+            });
         }
 
         function chooseType(dealType) {
-            return dealType == 'EXPORT' ? '出口' : '进口';
+            return dealType === 'EXPORT' ? '出口' : '进口';
         }
     </script>
 </head>
@@ -95,15 +96,28 @@
         </div>
         <div class="search-wrap">
             <div class="search-content">
-                <table class="search-tab">
-                    <tr>
-                        <th width="70">货物编码:</th>
-                        <td><input class="common-text" placeholder="关键字" name="keywords" id="code" type="text"></td>
-                        <td>
-                            <button class="btn btn-primary btn2" name="sub" onclick="query()">查询</button>
-                        </td>
-                    </tr>
-                </table>
+                <form:form name="query" id="query" commandName="vegetable">
+                    <table class="search-tab">
+                        <tr>
+                            <th width="70">蔬菜名称:</th>
+                            <td><input class="common-text" placeholder="关键字" name="vegetableName" type="text"></td>
+                            <th width="70" style="padding-left: 30px">蔬菜编码:</th>
+                            <td><input class="common-text" placeholder="关键字" name="vegetableCode" type="text"></td>
+                            <th width="70" style="padding-left: 30px">交易方式:</th>
+                            <td><label>
+                                <select name="dealType" style="width: 70px">
+                                    <option value="">全部</option>
+                                    <c:forEach items="${dealTypes}" var="type">
+                                        <option value="${type}">${type.name}</option>
+                                    </c:forEach>
+                                </select>
+                            </label></td>
+                            <td style="padding-left: 30px">
+                                <input class="btn btn-primary btn6 mr10" value="查询" type="button" onclick="queryVe()">
+                            </td>
+                        </tr>
+                    </table>
+                </form:form>
             </div>
         </div>
         <div class="result-wrap">
@@ -111,7 +125,7 @@
                 <div class="result-title">
                     <c:if test="${authority}">
                         <div class="result-list">
-                            <a class="btn btn2" href="/logistics/addLogistics.do">新增货物</a>
+                            <a class="btn btn2" href="/vegetables/addVegetables.do">新增货物</a>
                         </div>
                     </c:if>
                 </div>
@@ -125,7 +139,9 @@
                             <th>国家</th>
                             <th>价格</th>
                             <th>交易类型</th>
-                            <th>操作</th>
+                            <c:if test="${authority}">
+                                <th>操作</th>
+                            </c:if>
                         </tr>
                         <c:forEach items="${vegetables}" var="vegetable">
                             <tr>
@@ -136,7 +152,11 @@
                                 <td>${vegetable.country}</td>
                                 <td>${vegetable.price}</td>
                                 <td>${vegetable.dealType == 'EXPORT' ? '出口' : '进口' }</td>
-                                <td><a style="cursor: pointer;" onclick="del(${vegetable.vegetableId})">删除</a>&nbsp;&nbsp;<a style="cursor: pointer;" onclick="edit(${vegetable.vegetableId})">编辑</a></td>
+                                <c:if test="${authority}">
+                                    <td><a style="cursor: pointer;" onclick="del(${vegetable.vegetableId})">删除</a>&nbsp;&nbsp;
+                                        <a style="cursor: pointer;" onclick="edit(${vegetable.vegetableId})">编辑</a>
+                                    </td>
+                                </c:if>
                             </tr>
                         </c:forEach>
                     </table>

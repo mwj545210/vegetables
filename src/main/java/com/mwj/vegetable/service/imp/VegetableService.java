@@ -38,8 +38,15 @@ public class VegetableService implements IVegetableService {
         return vegetableDao.findOne(id);
     }
 
-//    @Override
-//    public List<Vegetable> findAllByCode(String code) {
-//        return vegetableDao.findByVegetableCodeContaining(code);
-//    }
+    @Override
+    public List<Vegetable> findAllByQuery(Vegetable vegetable) {
+        List<Vegetable> vegetables;
+        if (vegetable.getDealType() == null){
+            vegetables = vegetableDao.findAllByNameAndCode("%"+vegetable.getVegetableName()+"%","%"+vegetable.getVegetableCode()+"%");
+        }else {
+            vegetables = vegetableDao.findAllByNameAndCodeAndType("%"+vegetable.getVegetableName()+"%","%"+vegetable.getVegetableCode()+"%",vegetable.getDealType());
+        }
+        return vegetables;
+    }
+
 }

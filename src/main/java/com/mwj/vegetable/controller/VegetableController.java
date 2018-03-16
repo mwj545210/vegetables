@@ -20,7 +20,8 @@ public class VegetableController {
     private IVegetableService vegetableService;
     
     @RequestMapping(value = "addVegetables",method = RequestMethod.GET)
-    public String listVegetables(){
+    public String listVegetables(ModelMap modelMap){
+        modelMap.addAttribute("dealTypes", DealType.values());
         return "/vegetables/addVegetables";
     }
 
@@ -42,25 +43,26 @@ public class VegetableController {
         return "/vegetables/editVegetables";
     }
 
-//    @RequestMapping(value = "queryVegetables",method = RequestMethod.GET)
-//    @ResponseBody
-//    public ResponseResult queryVegetables(@RequestParam("code") String code){
-//        List<Vegetable> allByCode = vegetableService.findAllByCode(code);
-//        ResponseResult responseResult = new ResponseResult();
-//        responseResult.setData(allByCode);
-//        return responseResult;
-//    }
+    @RequestMapping(value = "queryVegetables",method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseResult queryVegetables(@ModelAttribute Vegetable vegetable){
+        List<Vegetable> all = vegetableService.findAllByQuery(vegetable);
+        ResponseResult responseResult = new ResponseResult();
+        responseResult.setData(all);
+        return responseResult;
+    }
 
     @RequestMapping(value = "listVegetables",method = RequestMethod.GET)
     public String viewVegetables(ModelMap modelMap){
         List<Vegetable> vegetables = vegetableService.findAllVegetables();
         modelMap.addAttribute("vegetables",vegetables);
+        modelMap.addAttribute("dealTypes", DealType.values());
         return "/vegetables/listVegetables";
     }
 
     @RequestMapping(value = "delVegetables",method = RequestMethod.GET)
     @ResponseBody
-    public ResponseResult delVegetables(@RequestParam int vegetableId){
+    public ResponseResult delVegetables(@RequestParam("vegetableId") int vegetableId){
         ResponseResult responseResult = new ResponseResult();
         try {
             vegetableService.delVegetablesById(vegetableId);
