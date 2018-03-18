@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>管理员中心</title>
+    <title>蔬菜列表</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="../assets/css/main.css"/>
     <script src="../assets/js/jquery-3.1.1.min.js"></script>
@@ -66,12 +66,8 @@
     </script>
 </head>
 <body>
-<div class="topbar-wrap white">
-    <!--<div class="topbar-inner clearfix">-->
-    <div class=" clearfix">
-        <h1 class=" none"><a href="index.html">管理员中心</a></h1>
-    </div>
-</div>
+<div class="topbar-wrap white" style="text-align: right">
+    <h1 style="padding-right: 50px;"><a href="/cancel.do" style="color: red">退出登录</a></h1>
 </div>
 <div class="container clearfix">
     <div class="sidebar-wrap">
@@ -82,7 +78,7 @@
             <ul class="sidebar-list">
                 <li>
                     <ul class="sub-menu">
-                        <li><a href="#">货物信息列表</a></li>
+                        <li><a href="#">蔬菜信息列表</a></li>
                     </ul>
                 </li>
             </ul>
@@ -92,7 +88,7 @@
     <div class="main-wrap">
 
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font">货物列表</i></div>
+            <div class="crumb-list"><i class="icon-font">蔬菜列表</i></div>
         </div>
         <div class="search-wrap">
             <div class="search-content">
@@ -125,7 +121,7 @@
                 <div class="result-title">
                     <c:if test="${authority}">
                         <div class="result-list">
-                            <a class="btn btn2" href="/vegetables/addVegetables.do">新增货物</a>
+                            <a class="btn btn2" href="/vegetables/addVegetables.do">新增蔬菜</a>
                         </div>
                     </c:if>
                 </div>

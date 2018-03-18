@@ -42,7 +42,7 @@
         </div>
         <div class="col-md-4 col-lg-4">
             <form:form id="login" commandName="user" action="login.do">
-                <h2 class="form-signin-heading">物流信息管理系统</h2>
+                <h2 class="form-signin-heading">蔬菜信息管理系统</h2>
                 <label >账号</label>
                 <input type="text" name="userName" class="form-control" placeholder="账号" required><br>
                 <label>密码</label>

@@ -4,6 +4,7 @@ import com.mwj.vegetable.entry.User;
 import com.mwj.vegetable.service.IUserService;
 import com.mwj.vegetable.vo.ResponseResult;
 import com.mwj.vegetable.vo.Result;
+import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,5 +40,11 @@ public class LoginController {
     @RequestMapping(value = "register",method = RequestMethod.GET)
     public String register(){
         return "/user/register";
+    }
+
+    @RequestMapping(value = "cancel",method = RequestMethod.GET)
+    public String cancel(HttpSession session){
+        session.setAttribute("authority",false);
+        return "index";
     }
 }

@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>编辑物流</title>
+    <title>编辑</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="../assets/css/main.css"/>
     <script type="text/javascript" src="../assets/js/modernizr.min.js"></script>
@@ -24,7 +24,7 @@
             <ul class="sidebar-list">
                 <li>
                     <ul class="sub-menu">
-                        <li><a href="/vegetables/listVegetables.do"><i class="icon-font"></i>货物信息列表</a></li>
+                        <li><a href="/vegetables/listVegetables.do"><i class="icon-font"></i>蔬菜信息列表</a></li>
                     </ul>
                 </li>
             </ul>
@@ -34,7 +34,7 @@
     <div class="main-wrap">
 
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font">保存货物</i></div>
+            <div class="crumb-list"><i class="icon-font">保存</i></div>
         </div>
         <div class="result-wrap">
             <div class="result-content">
